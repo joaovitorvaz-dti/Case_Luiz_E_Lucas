@@ -9,7 +9,7 @@
             Reservado,
         }
         public int Id { get; set; }  // o que o meeu bd vai receber dda entidade livro 
-        public double ISBN { get; set; }
+        public string ISBN { get; set; } = string.Empty;
         public string Titulo { get; set; } = string.Empty;
         public int Ano { get; set; }
         public string Autor { get; set; } = string.Empty;
