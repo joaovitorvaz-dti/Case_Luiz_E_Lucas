@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\",
+  "WorkspaceRootPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CE5D4A4C-7ACB-1042-C7AA-380B86E2B9A8}|src\\Application\\Biblioteca.Application\\Biblioteca.Application.csproj|c:\\users\\dti-\\desktop\\workspace-case\\case_luiz_e_lucas\\src\\application\\biblioteca.application\\validators\\livrovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CE5D4A4C-7ACB-1042-C7AA-380B86E2B9A8}|src\\Application\\Biblioteca.Application\\Biblioteca.Application.csproj|c:\\users\\dti-\\desktop\\workspace-case\\case_luiz_e_lucas\\backend\\src\\application\\biblioteca.application\\validators\\livrovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE5D4A4C-7ACB-1042-C7AA-380B86E2B9A8}|src\\Application\\Biblioteca.Application\\Biblioteca.Application.csproj|solutionrelative:src\\application\\biblioteca.application\\validators\\livrovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8369AB5-33A2-B0B2-CDAE-3F4122637B24}|src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj|c:\\users\\dti-\\desktop\\workspace-case\\case_luiz_e_lucas\\src\\infrastructure\\biblioteca.infrastructure\\repositories\\emprestimorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A8369AB5-33A2-B0B2-CDAE-3F4122637B24}|src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj|c:\\users\\dti-\\desktop\\workspace-case\\case_luiz_e_lucas\\backend\\src\\infrastructure\\biblioteca.infrastructure\\repositories\\emprestimorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8369AB5-33A2-B0B2-CDAE-3F4122637B24}|src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj|solutionrelative:src\\infrastructure\\biblioteca.infrastructure\\repositories\\emprestimorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "LivroValidator.cs",
-              "DocumentMoniker": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Application\\Biblioteca.Application\\Validators\\LivroValidator.cs",
+              "DocumentMoniker": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\backend\\src\\Application\\Biblioteca.Application\\Validators\\LivroValidator.cs",
               "RelativeDocumentMoniker": "src\\Application\\Biblioteca.Application\\Validators\\LivroValidator.cs",
-              "ToolTip": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Application\\Biblioteca.Application\\Validators\\LivroValidator.cs",
+              "ToolTip": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\backend\\src\\Application\\Biblioteca.Application\\Validators\\LivroValidator.cs",
               "RelativeToolTip": "src\\Application\\Biblioteca.Application\\Validators\\LivroValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -37,14 +37,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "EmprestimoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Infrastructure\\Biblioteca.Infrastructure\\Repositories\\EmprestimoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\backend\\src\\Infrastructure\\Biblioteca.Infrastructure\\Repositories\\EmprestimoRepository.cs",
               "RelativeDocumentMoniker": "src\\Infrastructure\\Biblioteca.Infrastructure\\Repositories\\EmprestimoRepository.cs",
-              "ToolTip": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Infrastructure\\Biblioteca.Infrastructure\\Repositories\\EmprestimoRepository.cs",
+              "ToolTip": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\backend\\src\\Infrastructure\\Biblioteca.Infrastructure\\Repositories\\EmprestimoRepository.cs",
               "RelativeToolTip": "src\\Infrastructure\\Biblioteca.Infrastructure\\Repositories\\EmprestimoRepository.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T20:24:31.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-25T20:24:31.861Z"
             }
           ]
         }
