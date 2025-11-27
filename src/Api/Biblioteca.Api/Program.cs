@@ -1,5 +1,6 @@
 
 using Biblioteca.Api.Modules;
+using Biblioteca.Application.Interfaces;
 using Biblioteca.Application.Services;
 using Biblioteca.Application.Validators;
 using Biblioteca.Domain;
@@ -31,7 +32,12 @@ builder.Services.AddValidatorsFromAssemblyContaining<LivroValidator>(); // coloq
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
+builder.Services.AddScoped<IEmprestimoRepository, EmprestimoRepository>();
+builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ILivroService, LivroService>();
+builder.Services.AddScoped<IEmprestimoService, EmprestimoService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddDbContext<BibliotecaDbContext>(options =>
     options.UseSqlServer(ConnectionString));
 
@@ -49,9 +55,11 @@ if (app.Environment.IsDevelopment())
 
 // app.UseHttpsRedirection();
 
-app.UseCors(MyAllowSpecificOrigins); //  API usa a permissão
+app.UseCors(MyAllowSpecificOrigins); //  API usa a permissao
 
 app.MapLivrosEndPoint();
+app.MapEmprestimosEndPoint();
+app.MapUsuariosEndPoint();
 
 
 app.Run();

@@ -1,5 +1,5 @@
-﻿using Biblioteca.Domain;
-using Biblioteca.Application.Services;
+﻿using Biblioteca.Application.Interfaces;
+using Biblioteca.Domain;
 using static Biblioteca.Domain.Livro;
 
 namespace Biblioteca.Api.Modules

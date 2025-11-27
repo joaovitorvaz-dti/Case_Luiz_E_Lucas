@@ -65,12 +65,17 @@ namespace Biblioteca.Infrastructure.Repositories
 
         public async Task<bool> HasActiveEmprestimoAsync(int livroId)
         {
-            return await _context.Emprestimos.AnyAsync(e  => e.LivroId == livroId && e.Status != StatusEmprestimo.Devolvido);
+            return await _context.Emprestimos.AnyAsync(e =>
+                e.LivroId == livroId &&
+                (e.Status == StatusEmprestimo.Emprestado || e.Status == StatusEmprestimo.Atrasado));
         }
 
         public async Task<bool> HasActiveReservasAsync(int livroId)
         {
-            return await _context.Reservas.AnyAsync(r => r.LivroId == livroId && r.Status == StatusReserva.Ativa);
+            return await _context.Reservas.AnyAsync(r =>
+                r.LivroId == livroId &&
+                r.Status == StatusReserva.Ativa &&
+                r.DataExpiracao > DateTime.UtcNow);
         }
 
     }

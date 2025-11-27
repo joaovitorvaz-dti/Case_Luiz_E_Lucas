@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dwdaNLgdTqU=",
+  "dgSpecHash": "qdu8nrN++g4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dti-\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\dti-\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

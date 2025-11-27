@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {}
+    "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {
+    "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
         "projectName": "Biblioteca.Domain",
-        "projectPath": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
+        "projectPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Domain\\Biblioteca.Domain\\Biblioteca.Domain.csproj",
         "packagesPath": "C:\\Users\\dti-\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Domain\\Biblioteca.Domain\\obj\\",
+        "outputPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Domain\\Biblioteca.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Api",
+    "\\Api\\Biblioteca.Api",
+    "\\Api\\Biblioteca.Api\\Modules",
+    "\\Application",
+    "\\Application\\Biblioteca.Application",
+    "\\Application\\Biblioteca.Application\\Services",
+    "\\Application\\Biblioteca.Application\\Validators"
+  ],
+  "SelectedNode": "\\Api\\Biblioteca.Api\\Modules\\ReservaModules.cs",
+  "PreviewInSolutionExplorer": false
+}

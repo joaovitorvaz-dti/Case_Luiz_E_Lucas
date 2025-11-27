@@ -1,7 +1,7 @@
-﻿using Biblioteca.Domain;
+﻿using Biblioteca.Application.Interfaces;
+using Biblioteca.Domain;
 using Biblioteca.Domain.Interfaces;
 using FluentValidation;
-using System.ComponentModel.DataAnnotations;
 using static Biblioteca.Domain.Livro;
 
 namespace Biblioteca.Application.Services
@@ -64,10 +64,12 @@ namespace Biblioteca.Application.Services
                 return null; 
             }
 
+
             livroDoBanco.Titulo = livroAtualizar.Titulo;
             livroDoBanco.Autor = livroAtualizar.Autor;
             livroDoBanco.Ano = livroAtualizar.Ano;
             livroDoBanco.ISBN = livroAtualizar.ISBN;
+            livroDoBanco.Status = livroAtualizar.Status;
 
             await _livroRepository.UpdateAsync(livroDoBanco);
             return livroDoBanco;

@@ -5854,11 +5854,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Api\\Biblioteca.Api\\Biblioteca.Api.csproj",
+      "projectUniqueName": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Api\\Biblioteca.Api\\Biblioteca.Api.csproj",
       "projectName": "Biblioteca.Api",
-      "projectPath": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Api\\Biblioteca.Api\\Biblioteca.Api.csproj",
+      "projectPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Api\\Biblioteca.Api\\Biblioteca.Api.csproj",
       "packagesPath": "C:\\Users\\dti-\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Api\\Biblioteca.Api\\obj\\",
+      "outputPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Api\\Biblioteca.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5873,18 +5873,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Application\\Biblioteca.Application\\Biblioteca.Application.csproj": {
-              "projectPath": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Application\\Biblioteca.Application\\Biblioteca.Application.csproj"
+            "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Application\\Biblioteca.Application\\Biblioteca.Application.csproj": {
+              "projectPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Application\\Biblioteca.Application\\Biblioteca.Application.csproj"
             },
-            "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\dti-\\Desktop\\biblioteca-back\\src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj"
+            "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\dti-\\Desktop\\workspace-case\\Case_Luiz_E_Lucas\\src\\Infrastructure\\Biblioteca.Infrastructure\\Biblioteca.Infrastructure.csproj"
             }
           }
         }
