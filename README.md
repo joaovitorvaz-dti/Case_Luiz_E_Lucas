@@ -135,15 +135,3 @@ export async function fetchUsuarios() {
   return await res.json();
 }
 ```
-
-Boas práticas e recomendações:
-- Use `axios` com interceptors para anexar JWT ao cabeçalho `Authorization`.
-- Prefira `httpOnly` cookies para armazenar tokens quando possível (mais seguro contra XSS).
-- Use `react-hook-form` + `zod`/`yup` para validação no frontend alinhada com o backend.
-- Trate erros HTTP (400/401/403/500) e mostre mensagens claras ao usuário.
-
-Observação: o backend atual ainda não provê endpoints de autenticação (login/token). Será necessário adicionar suporte a JWT no backend para um fluxo completo de login/autenticação.
-
-Se quiser, posso gerar um esqueleto de frontend (componentes, serviços e página de login) pronto para consumir esta API.
-
-
