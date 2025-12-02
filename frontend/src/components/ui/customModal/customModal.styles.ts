@@ -3,9 +3,12 @@ import {Dialog, DialogContent} from '@mui/material'
 
 export const StyledDialog = styled(Dialog)`
   && .MuiPaper-root {
-    width: 366px;
-    border-radius: var(--border-radius-xxlarge);
+    width: 1080px;
+    max-width: calc(100vw - 48px);
+    border-radius: 1.9rem;
     box-shadow: 0px 8px 24px 0px #20262429;
+    overflow: hidden;
+    padding : 30px;
   }
   && .MuiDialogContent-root {
     padding: var(--spacing-medium);
@@ -16,10 +19,10 @@ export const StyledDialog = styled(Dialog)`
 export const StyledDialogContent = styled(DialogContent)`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: var(--spacing-medium);
-  gap: var(--spacing-small);
+  align-items: flex-start;
+  text-align: left;
+  padding: calc(var(--spacing-medium) * 1.25);
+  gap: 20px;
   position: relative;
 `
 
@@ -43,14 +46,47 @@ export const ActionsWrapper = styled.div.withConfig({
       right: 'end',
     })[actionsAlign]};
   flex-direction: row;
-  margin-top: var(--spacing-xsmall);
+  margin-top: var(--spacing-small);
+  gap: 24px !important;
 
-  &:has(> :nth-child(2)) {
-    gap: var(--spacing-medium);
+  /* Force spacing on all direct children */
+  > * {
+    margin: 0 !important;
   }
 
-  &:has(> :nth-child(3)) {
+  > * + * {
+    margin-left: 24px !important;
+  }
+
+  /* Target MUI buttons specifically */
+  button {
+    margin: 0 !important;
+    
+    &:not(:first-child) {
+      margin-left: 24px !important;
+    }
+  }
+
+  /* If there are many actions, stack vertically on narrow screens */
+  @media (max-width: 480px) {
     flex-direction: column;
+    gap: var(--spacing-small);
+
+    > * {
+      margin: 0 !important;
+    }
+
+    > * + * {
+      margin-left: 0 !important;
+      margin-top: 12px !important;
+    }
+
+    button {
+      &:not(:first-child) {
+        margin-left: 0 !important;
+        margin-top: 12px !important;
+      }
+    }
   }
 `
 
@@ -58,11 +94,12 @@ export const StyledTitle = styled.h2.withConfig({
   shouldForwardProp: prop => prop !== 'textAlign',
 })<{textAlign: string}>`
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   width: 100%;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-neutral-xdark);
   text-align: ${({textAlign}) => textAlign};
+  font-family: Georgia, 'Times New Roman', serif;
 `
 
 export const StyledSubtitle = styled.p.withConfig({

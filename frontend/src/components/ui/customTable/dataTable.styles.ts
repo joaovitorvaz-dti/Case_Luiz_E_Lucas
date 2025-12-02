@@ -12,27 +12,30 @@ export const StyledTableCell = styled(TableCell)`
   height: 52px;
   padding: 16px;
   vertical-align: middle;
-  color: red;
+  color: var(--color-neutral-xdark);
   border: none;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease;
+  padding: 12px 16px;
 
   && {
-    font-size: 12px;
-    font-family: ;
+    font-size: 13px;
     font-weight: 400;
   }
 `
 
 export const StyledHeaderCell = styled(TableCell)`
-  color: red;
+  color: #ffffff;
+  background-color: var(--color-brand-primary-pure);
   border: none;
+  font-weight: 700;
 
   && {
     font-size: 14px;
-    font-family: ;
-    font-weight: 600;
-    height: 32px;
-    vertical-align: top;
-    padding: 0px 16px;
+    font-weight: 700;
+    height: 48px;
+    vertical-align: center;
+    padding: 12px 16px;
   }
 `
 
@@ -41,34 +44,44 @@ export const StyledTable = styled(Table)`
   table-layout: fixed;
   width: 100%;
   height: 100%;
-  transition: all 3s ease-in-out;
-  border: none;
-  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+  border-collapse: collapse;
+  background-color: #ffffff;
 
   && {
-    border: none;
-    box-shadow: none;
+    border-collapse: collapse;
   }
 
   th,
   td,
   thead th {
-    border-bottom: 2px solid var(--color-background-opaque-01);
+    border-bottom: 1px solid #e0e0e0;
   }
 
-  tbody tr:last-child td {
-    border-bottom: none;
+  tbody tr {
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: #f5f5f5;
+    }
+
+    &:last-child td {
+      border-bottom: none;
+    }
   }
 `
 
 export const StyledPaper = styled(Paper)`
-  padding: 0;
+  padding: 24px;
   overflow: hidden;
-  box-shadow: none;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin: 0;
 
   && {
-    border: none;
-    box-shadow: none;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   }
 `
 
@@ -78,7 +91,8 @@ export const StyledTableContainer = styled(TableContainer).withConfig({
   shouldHideOverflow: boolean
 }>`
   overflow: ${props => (props.shouldHideOverflow ? 'hidden' : 'auto')};
-  transition: all 3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
 
   && {
     border: none;
@@ -87,7 +101,8 @@ export const StyledTableContainer = styled(TableContainer).withConfig({
 `
 
 export const StyledTableBody = styled(TableBody)`
-  transition: all 3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
 
   && {
     border: none;
@@ -97,10 +112,15 @@ export const StyledTableBody = styled(TableBody)`
 export const StyledTableRow = styled(TableRow)`
   && {
     border: none;
-  }
+    transition: background-color 0.2s ease;
 
-  &:last-child td {
-    border-bottom: none;
+    &:hover {
+      background-color: #f9f9f9;
+    }
+
+    &:last-child td {
+      border-bottom: none;
+    }
   }
 `
 

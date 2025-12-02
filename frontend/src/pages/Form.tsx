@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
@@ -9,9 +9,14 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import { api } from '../services/api';
-import type { LivroApi, StatusLivroApi } from '../types/interfaces/livro';
-import type { AxiosError } from 'axios';
+import {
+  getLivroById,
+  createLivro,
+  updateLivro,
+  validarDadosLivro,
+  extrairMensagemErro,
+} from '../services/livroService';
+import type { StatusLivroApi } from '../types/interfaces/livro';
 
 interface LivroFormData {
   isbn: string;
@@ -20,59 +25,6 @@ interface LivroFormData {
   ano: number;
   status: StatusLivroApi;
 }
-
-// Type guard para verificar se é um erro do Axios
-function isAxiosError(error: unknown): error is AxiosError<unknown> {
-  if (typeof error !== 'object' || error === null) {
-    return false;
-  }
-  return 'response' in error && 'config' in error && 'isAxiosError' in error;
-}
-
-const createLivro = async (data: LivroFormData): Promise<LivroApi> => {
-  const response = await api.post<LivroApi>('/livros', data);
-  return response.data;
-};
-
-const updateLivro = async (id: number, data: LivroFormData): Promise<LivroApi> => {
-  const payload = {
-    id: Number(id),
-    isbn: String(data.isbn).trim(),
-    titulo: String(data.titulo).trim(),
-    autor: String(data.autor).trim(),
-    ano: Number(data.ano),
-    status: Number(data.status) as StatusLivroApi,
-  };
-  
-  console.log('Payload do PUT (com ID):', payload);
-  console.log('URL:', `/livros/${id}`);
-  
-  try {
-    const response = await api.put<LivroApi>(`/livros/${id}`, payload);
-    return response.data;
-  } catch (error: unknown) {
-    // Se der erro 400, tenta sem o ID no body
-    if (isAxiosError(error) && error.response?.status === 400) {
-      console.log('Tentando PUT sem ID no body porque deu 400 Bad Request');
-      const payloadSemId = {
-        isbn: String(data.isbn).trim(),
-        titulo: String(data.titulo).trim(),
-        autor: String(data.autor).trim(),
-        ano: Number(data.ano),
-        status: Number(data.status) as StatusLivroApi,
-      };
-      console.log('Payload do PUT:', payloadSemId);
-      const response = await api.put<LivroApi>(`/livros/${id}`, payloadSemId);
-      return response.data;
-    }
-    throw error;
-  }
-};
-
-const getLivroById = async (id: number): Promise<LivroApi> => {
-  const response = await api.get<LivroApi>(`/livros/${id}`);
-  return response.data;
-};
 
 const Form: React.FC = () => {
   const navigate = useNavigate();
@@ -120,99 +72,68 @@ const Form: React.FC = () => {
       navigate('/');
     },
     onError: (error: unknown) => {
-      console.error(`Erro ao ${isEditMode ? 'atualizar' : 'criar'} livro:`, error);
-      
-      // Mostrar mensagem de erro mais detalhada
-      let errorMessage = `Erro ao ${isEditMode ? 'atualizar' : 'criar'} livro.`;
-      
-      if (isAxiosError(error)) {
-        // Se o backend retornou uma mensagem de erro
-        const responseData = error.response?.data;
-        if (responseData) {
-          if (typeof responseData === 'string') {
-            errorMessage += `\n${responseData}`;
-          } else if (typeof responseData === 'object' && responseData !== null) {
-            const backendError = responseData as { message?: string; error?: string };
-            if (backendError.message) {
-              errorMessage += `\n${backendError.message}`;
-            } else if (backendError.error) {
-              errorMessage += `\n${backendError.error}`;
-            }
-          }
-        }
-        
-        console.error('Detalhes do erro:', {
-          status: error.response?.status,
-          statusText: error.response?.statusText,
-          data: error.response?.data,
-          config: error.config,
-        });
-      } else if (error instanceof Error) {
-        errorMessage += `\n${error.message}`;
-      }
-      
-      alert(errorMessage);
+      const errorMessage = extrairMensagemErro(error);
+      alert(`Erro ao ${isEditMode ? 'atualizar' : 'criar'} livro: ${errorMessage}`);
     },
   });
 
-  const handleChange = (field: keyof LivroFormData) => (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = event.target.value;
-    setFormData((prev) => ({
-      ...prev,
-      [field]: field === 'ano' ? Number(value) : value,
-    }));
-  };
+  const handleChange = useCallback(
+    (field: keyof LivroFormData) =>
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setFormData((prev) => ({
+          ...prev,
+          [field]: field === 'ano' ? Number(value) : value,
+        }));
+      },
+    []
+  );
 
-  const handleSelectChange = (event: { target: { value: unknown } }) => {
-    // Garantir que o valor é um número
+  const handleSelectChange = useCallback((event: { target: { value: unknown } }) => {
     const value = Number(event.target.value) as StatusLivroApi;
     setFormData((prev) => ({
       ...prev,
       status: value,
     }));
-  };
+  }, []);
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    
-    // Validação básica
-    if (!formData.isbn.trim() || !formData.titulo.trim() || !formData.autor.trim()) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
-      return;
-    }
-    
-    // Garantir que o ano é um número válido
-    if (isNaN(formData.ano) || formData.ano < 1000 || formData.ano > new Date().getFullYear()) {
-      alert('Por favor, insira um ano válido.');
-      return;
-    }
-    
-    // Garantir que o status é um número válido (0, 1 ou 2)
-    if (typeof formData.status !== 'number' || ![0, 1, 2].includes(formData.status)) {
-      alert('Status inválido. Por favor, selecione um status válido.');
-      return;
-    }
-    
-    // Garantir que todos os valores são do tipo correto
-    const validatedData: LivroFormData = {
-      isbn: String(formData.isbn).trim(),
-      titulo: String(formData.titulo).trim(),
-      autor: String(formData.autor).trim(),
-      ano: Number(formData.ano),
-      status: Number(formData.status) as StatusLivroApi,
-    };
-    
-    console.log('Enviando dados validados:', {
-      isEditMode,
-      livroId,
-      validatedData,
-      formDataOriginal: formData,
-    });
-    
-    mutation.mutate(validatedData);
-  };
+  const handleSubmit = useCallback(
+    (event: React.FormEvent) => {
+      event.preventDefault();
+
+      // Validar dados usando o serviço
+      const validacao = validarDadosLivro(
+        formData.isbn,
+        formData.titulo,
+        formData.autor,
+        formData.ano,
+        formData.status
+      );
+
+      if (!validacao.valido) {
+        alert(validacao.erros.join('\n'));
+        return;
+      }
+
+      // Garantir que todos os valores são do tipo correto
+      const validatedData: LivroFormData = {
+        isbn: String(formData.isbn).trim(),
+        titulo: String(formData.titulo).trim(),
+        autor: String(formData.autor).trim(),
+        ano: Number(formData.ano),
+        status: Number(formData.status) as StatusLivroApi,
+      };
+
+      console.log('Enviando dados validados:', {
+        isEditMode,
+        livroId,
+        validatedData,
+      });
+
+      mutation.mutate(validatedData);
+    },
+    [formData, isEditMode, livroId, mutation]
+  );
 
   if (isEditMode && isLoadingLivro) {
     return (
